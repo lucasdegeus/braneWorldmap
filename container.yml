@@ -1,0 +1,43 @@
+name: worldmap
+version: 1.0.0
+kind: compute
+
+dependencies:
+  - python3
+  - python3-pip
+  - python3-yaml
+
+install:
+  - pip3 install matplotlib
+  - pip3 install geopandas
+
+files:
+  - run.py
+
+entrypoint:
+  kind: task
+  exec: run.py
+
+actions:
+  'create_map':
+    command:
+      args:
+        - create_map
+      capture: marked
+
+    input:
+      - type: real[]
+        name: sentiment
+
+      - type: string[]
+        name: countries
+
+      - type: string
+        name: label
+
+      - type: string
+        name: file
+
+    output:
+      - type: string
+        name: output
