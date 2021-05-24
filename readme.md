@@ -12,7 +12,7 @@ Otherwise/then:
 
 ```console
 brane build container.yml
-brane push world map 1.0.0
+brane push worldmap 1.0.0
 ```
 
 ## Usage
