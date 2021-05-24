@@ -1,5 +1,4 @@
 # Worldmap
-
 Worldmap is a brane package for creating maps of the world using Geopandas. Each country can be given a value representing a color in the red, yellow and green range.
 
 ## Installation
