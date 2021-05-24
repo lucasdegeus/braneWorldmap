@@ -15,6 +15,12 @@ brane build container.yml
 brane push worldmap 1.0.0
 ```
 
+Or install using the brane import function: 
+```
+brane import lucasdegeus/braneWorldmap --kind ecu
+```
+
+
 ## Usage
 
 ```brane
