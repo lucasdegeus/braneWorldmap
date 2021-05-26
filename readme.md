@@ -1,4 +1,5 @@
 # Worldmap
+
 Worldmap is a brane package for creating maps of the world using Geopandas. Each country can be given a value representing a color in the red, yellow and green range.
 
 ## Installation
@@ -11,14 +12,8 @@ Otherwise/then:
 
 ```console
 brane build container.yml
-brane push worldmap 1.0.0
+brane push world map 1.0.0
 ```
-
-Or install using the brane import function: 
-```
-brane import lucasdegeus/braneWorldmap --kind ecu
-```
-
 
 ## Usage
 
@@ -33,7 +28,7 @@ create_map(values, countries, "Legend name", "/data/wordcloud.png");
 ```
 
 ## Notes
-Countries and values are matched using their index where blank countries receive a value of 0. Lowest value in the array is represented using the color red and highest value is represented by green. These values can be positive, negative, floats or integers.
+Countries and values are matched using their index. Lowest value in the array is represented using the color red, highest value by green and missing countries by grey. These values can be positive, negative, floats or integers.
 
 Countries should be provided with names according to this list:
 

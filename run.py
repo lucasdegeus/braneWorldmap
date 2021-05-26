@@ -13,7 +13,7 @@ import geopandas as gpd
 
 def create_map(sentiment: List[float], countries: List[str], label: str, file: str) -> str:
     gdf = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
-    gdf['sentiment'] = 0
+    gdf['sentiment'] = np.nan
 
     for i, j in zip(countries, sentiment):
         gdf['sentiment'].loc[gdf['name'] == i] = j
@@ -23,7 +23,8 @@ def create_map(sentiment: List[float], countries: List[str], label: str, file: s
     ax.get_yaxis().set_visible(False)
 
     gdf.plot(ax=ax, column='sentiment', cmap='RdYlGn', legend=True,
-            legend_kwds={'label': label, 'orientation': "horizontal"})
+            legend_kwds={'label': label, 'orientation': "horizontal"},
+            missing_kwds= dict(color = "lightgrey",))
 
     fig.savefig(file)
     return file
