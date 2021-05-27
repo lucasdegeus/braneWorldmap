@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+#Importing libraries
 import os
 import sys
 import yaml
@@ -12,9 +13,12 @@ import random
 import geopandas as gpd
 
 def create_map(sentiment: List[float], countries: List[str], label: str, file: str) -> str:
+
+    # Read in a map of the world and set all values to np.nans
     gdf = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
     gdf['sentiment'] = np.nan
 
+    # Change values to new values if present country is present in array
     for i, j in zip(countries, sentiment):
         gdf['sentiment'].loc[gdf['name'] == i] = j
 

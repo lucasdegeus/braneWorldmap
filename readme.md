@@ -12,19 +12,29 @@ Otherwise/then:
 
 ```console
 brane build container.yml
-brane push world map 1.0.0
+brane push worldmap 1.0.0
 ```
+Or install using the brane import function:
 
+```console
+brane import lucasdegeus/braneWorldmap --kind ecu
+```
 ## Usage
+Input parameters are:
+* countries: an array of country names
+* values: an array of values corresponding with the countries
+* legend_name: name below the color bar
+* path: path to save file
 
 ```brane
 import worldmap;
 
 let countries := ["Canada", "United States of America"];
-
 let values := [100.0, -50];
+let legend_name := "Sentiment";
+let path := "/data/wordmap.png";
 
-create_map(values, countries, "Legend name", "/data/wordcloud.png");
+create_map(values, countries, legend_name, path);
 ```
 
 ## Notes
